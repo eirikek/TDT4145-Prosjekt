@@ -28,8 +28,12 @@ def legg_til_transaksjon_og_billett(sal_id, rad_nr, stol_nr, omraade, dato):
     conn.close()
 
 
-hovedscenen = open("hovedscenen.txt", "r")
-print(hovedscenen.read())
+hovedscenen = open("TDT4145-Prosjekt/Task1/hovedscenen.txt", "r")
+hovedscenen.close()
+
+gamle_scene = open("TDT4145-Prosjekt/Task1/gamle-scene.txt", "r")
+print(gamle_scene.read())
+gamle_scene.close()
 
 
 # Lese hovedscenen.txt.
