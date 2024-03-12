@@ -68,7 +68,7 @@ def add_row_to_scene(scene_list, seating, sal_id, dato):
     #     seating[section] = {str(i + 1): row for i, row in enumerate(reversed(rows))}
 
 
-# Open the file and read the lines
+
 def main():
     hovedscenen = open("Task1/hovedscenen.txt", "r")
     gamle_scene = open("Task1/gamle-scene.txt", "r")
