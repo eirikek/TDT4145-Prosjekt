@@ -96,13 +96,13 @@ CREATE TABLE Transaksjon (
     Tidspunkt TIME,
     AntallBilletter INTEGER,
     KundeID INTEGER NOT NULL,
-    BilettPrisID INTEGER NOT NULL,
+    BillettPrisID INTEGER NOT NULL,
 
     FOREIGN KEY (KundeID) 
         REFERENCES KundeProfil (KundeID)
         ON UPDATE CASCADE,
 
-    FOREIGN KEY (BilettPrisID) 
+    FOREIGN KEY (BillettPrisID) 
         REFERENCES BillettPris (BilettPrisID)
         ON UPDATE CASCADE
 );

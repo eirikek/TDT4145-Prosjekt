@@ -34,13 +34,59 @@ def legg_til_transaksjon_og_billett(sal_id, rad_nr, stol_nr, omraade, dato):
     conn.close()
 
 
-hovedscenen = open("TDT4145-Prosjekt/Task1/hovedscenen.txt", "r")
+hovedscenen = open("Task1/hovedscenen.txt", "r")
 hovedscenen.close()
 
-gamle_scene = open("TDT4145-Prosjekt/Task1/gamle-scene.txt", "r")
-print(gamle_scene.read())
-gamle_scene.close()
+gamle_scene = open("Task1/gamle-scene.txt", "r")
 
+
+# Initialize the dictionary
+# Initialize the dictionary
+
+
+def add_row_to_scene(scene_list, seating, sal_id, dato):
+
+    # Initialize variables
+    section = None
+    rad_nr = 1
+
+    for line in scene_list:
+        line = line.strip()  #
+        if line in seating:
+            section = line
+        elif line and section is not None:
+            for stol_nr, status in enumerate(line, start=1):
+                if status == "1":
+                    legg_til_stol(sal_id, rad_nr, stol_nr, section)
+                    legg_til_transaksjon_og_billett(
+                        sal_id, rad_nr, stol_nr, section, dato
+                    )
+            rad_nr += 1
+            # seating[section].append(line)
+
+    # for section, rows in seating.items():
+    #     seating[section] = {str(i + 1): row for i, row in enumerate(reversed(rows))}
+
+
+# Open the file and read the lines
+def main():
+    hovedscenen = open("Task1/hovedscenen.txt", "r")
+    gamle_scene = open("Task1/gamle-scene.txt", "r")
+
+    lines_gamle = gamle_scene.readlines()
+    seating_gamle = {"Galleri": [], "Balkong": [], "Parkett": []}
+    add_row_to_scene(lines_gamle, seating_gamle, sal_id=2, dato="2024-02-03")
+
+    lines_hoved = hovedscenen.readlines()
+    seating_hoved = {"Galleri": [], "Parkett": []}
+    add_row_to_scene(lines_hoved, seating_hoved, sal_id=1, dato="2024-02-03")
+
+    hovedscenen.close()
+    gamle_scene.close()
+
+
+if __name__ == "__main__":
+    main()
 
 # Lese hovedscenen.txt.
 # Hente ut "dato" fra første linje
