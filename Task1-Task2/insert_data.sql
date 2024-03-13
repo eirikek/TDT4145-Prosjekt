@@ -80,9 +80,7 @@ VALUES
     ("Ordinær"),
     ("Honnør"),
     ("Student"), 
-    ("Barn"), 
-    ("Gruppe 10"), 
-    ("Gruppe honnør 10"); 
+    ("Barn")
 
 --Rolle
 INSERT INTO Rolle (Navn) Values 
@@ -100,8 +98,22 @@ INSERT INTO Rolle (Navn) Values
     ("Tr");
 
 INSERT INTO Kundeprofil(Tlfnr, Navn, Addresse, GruppeID) VALUES(98769538, "Pål", "Kule gata 3", 3);
+
+--Størst av alt er kjærligheten
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (350, 1, 1, 1)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (300, 1, 2, 1)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (220, 1, 3, 1)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (220, 1, 4, 1)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (320, 10, 1, 1)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (270, 10, 2, 1)
+
+
 --Kongsemne
 
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (450,  )
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (450, 1, 1, 2)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (380, 1, 2, 2)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (280, 1, 3, 2)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (420, 10, 1, 2)
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (360, 10, 2, 2)
 
 
