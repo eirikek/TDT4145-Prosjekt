@@ -28,8 +28,6 @@ INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024
 
 --Akt
 
-
-
 INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 1);
 INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 2);
 INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 3);

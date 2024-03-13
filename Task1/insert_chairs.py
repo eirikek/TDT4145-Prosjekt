@@ -48,18 +48,33 @@ def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
 
     section = None
     rad_nr = 1
+    omraader = []
+    omraade_index = 0
 
     for line in scene_list:
         line = line.strip()
         if line in seating:
-            section = line
-        elif line and section is not None:
-            for stol_nr, status in enumerate(line, start=1):
-                legg_til_stol(sal_id, rad_nr, stol_nr, section)
-                if status == "1":
-                    legg_til_transaksjon_og_billett(
-                        2, rad_nr, stol_nr, section, dato)
-            rad_nr += 1
+            omraader.append(line)
+
+    for line in scene_list:
+        line = line.strip()
+        if line in seating:
+            if omraade_index == len(omraader) - 1:
+                break
+            omraade_index += 1
+            rad_nr = 1
+            try:
+                int(line)
+            except ValueError:
+                continue
+
+        section = omraader[omraade_index]
+        for stol_nr, status in enumerate(line, start=1):
+            legg_til_stol(sal_id, rad_nr, stol_nr, section)
+            if status == "1":
+                legg_til_transaksjon_og_billett(
+                    2, rad_nr, stol_nr, section, dato)
+        rad_nr += 1
 
 
 def main():
@@ -68,9 +83,7 @@ def main():
 
     lines_gamle = gamle_scene.readlines()
     lines_gamle.reverse()
-    print(lines_gamle)
     dato = lines_gamle[-1].strip().split(" ")[1]
-    print("dator: " + dato)
 
     seating_gamle = {"Parkett": [], "Balkong": [], "Galleri": []}
     add_row_to_scene_gamle(lines_gamle, seating_gamle,
