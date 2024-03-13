@@ -34,39 +34,32 @@ def legg_til_transaksjon_og_billett(sal_id, rad_nr, stol_nr, omraade, dato):
     conn.close()
 
 
-hovedscenen = open("Task1/hovedscenen.txt", "r")
-hovedscenen.close()
+def add_row_to_scene_hoved(file, seating, sal_id):
 
-gamle_scene = open("Task1/gamle-scene.txt", "r")
+    with open(file, "r") as scene:
+
+        rad = scene.readline()
+
+        if "Dato" in rad:
+            rad[5:-1]
 
 
-# Initialize the dictionary
-# Initialize the dictionary
+def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
 
-
-def add_row_to_scene(scene_list, seating, sal_id, dato):
-
-    # Initialize variables
     section = None
     rad_nr = 1
 
     for line in scene_list:
-        line = line.strip()  #
+        line = line.strip()
         if line in seating:
             section = line
         elif line and section is not None:
             for stol_nr, status in enumerate(line, start=1):
+                legg_til_stol(sal_id, rad_nr, stol_nr, section)
                 if status == "1":
-                    legg_til_stol(sal_id, rad_nr, stol_nr, section)
                     legg_til_transaksjon_og_billett(
-                        sal_id, rad_nr, stol_nr, section, dato
-                    )
+                        2, rad_nr, stol_nr, section, dato)
             rad_nr += 1
-            # seating[section].append(line)
-
-    # for section, rows in seating.items():
-    #     seating[section] = {str(i + 1): row for i, row in enumerate(reversed(rows))}
-
 
 
 def main():
@@ -74,12 +67,14 @@ def main():
     gamle_scene = open("Task1/gamle-scene.txt", "r")
 
     lines_gamle = gamle_scene.readlines()
-    seating_gamle = {"Galleri": [], "Balkong": [], "Parkett": []}
-    add_row_to_scene(lines_gamle, seating_gamle, sal_id=2, dato="2024-02-03")
+    lines_gamle.reverse()
+    print(lines_gamle)
+    dato = lines_gamle[-1].strip().split(" ")[1]
+    print("dator: " + dato)
 
-    lines_hoved = hovedscenen.readlines()
-    seating_hoved = {"Galleri": [], "Parkett": []}
-    add_row_to_scene(lines_hoved, seating_hoved, sal_id=1, dato="2024-02-03")
+    seating_gamle = {"Parkett": [], "Balkong": [], "Galleri": []}
+    add_row_to_scene_gamle(lines_gamle, seating_gamle,
+                           sal_id=2, dato=dato)
 
     hovedscenen.close()
     gamle_scene.close()
@@ -87,10 +82,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# Lese hovedscenen.txt.
-# Hente ut "dato" fra første linje
-# Dele opp galleri og parkett
-# Hvis 0 lag ny stol, hvis 1 lag ny stol og transaksjon + billett (knyttet til kundeprofil)
-# Hvis newline, radnr += 1
-# Hvis x, continue
