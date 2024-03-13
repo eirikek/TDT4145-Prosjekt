@@ -25,6 +25,7 @@ INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024-03-11", "19:30:00");
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024-03-12", "19:30:00");
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024-03-18", "19:30:00");
+INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024-02-03", "19:30:00");
 
 --Akt
 
