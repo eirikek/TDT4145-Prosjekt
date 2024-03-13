@@ -99,5 +99,7 @@ INSERT INTO Rolle (Navn) Values
     ("Baard Bratte"), 
     ("Tr");
 
+INSERT INTO Kundeprofil(Tlfnr, Navn, Addresse, GruppeID) VALUES(98769538, "Pål", "Kule gata 3", 3);
+
 
 

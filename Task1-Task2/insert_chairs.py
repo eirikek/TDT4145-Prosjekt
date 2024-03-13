@@ -68,8 +68,6 @@ def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
             except ValueError:
                 continue
 
-        # copilot generat
-        # copilot generated
         section = omraader[omraade_index]
         for stol_nr, status in enumerate(line, start=1):
             legg_til_stol(sal_id, rad_nr, stol_nr, section)
