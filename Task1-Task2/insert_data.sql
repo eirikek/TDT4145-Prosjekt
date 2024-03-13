@@ -100,6 +100,8 @@ INSERT INTO Rolle (Navn) Values
     ("Tr");
 
 INSERT INTO Kundeprofil(Tlfnr, Navn, Addresse, GruppeID) VALUES(98769538, "Pål", "Kule gata 3", 3);
+--Kongsemne
 
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (450,  )
 
 
