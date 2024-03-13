@@ -78,8 +78,8 @@ def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
 
 
 def main():
-    hovedscenen = open("Task1/hovedscenen.txt", "r")
-    gamle_scene = open("Task1/gamle-scene.txt", "r")
+    hovedscenen = open("Task1-Task2/hovedscenen.txt", "r")
+    gamle_scene = open("Task1-Task2/gamle-scene.txt", "r")
 
     lines_gamle = gamle_scene.readlines()
     lines_gamle.reverse()
