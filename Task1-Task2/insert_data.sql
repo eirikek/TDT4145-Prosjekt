@@ -18,6 +18,7 @@ INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, "2024
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, "2024-03-12", "18:30:00");
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, "2024-03-19", "18:30:00");
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, "2024-04-02", "18:30:00");
+INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, "2024-02-03", "19:30:00");
 
 --Storst av alt er kjaerligheten
 INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, "2024-03-07", "19:30:00");
