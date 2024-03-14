@@ -34,14 +34,64 @@ def legg_til_transaksjon_og_billett(sal_id, rad_nr, stol_nr, omraade, dato):
     conn.close()
 
 
-def add_row_to_scene_hoved(file, seating, sal_id):
+def add_row_to_scene_hoved(sal_id):
+
+    file = "Task1-Task2/hovedscenen.txt"
+    området = None
+    rad_nr = 0
+    stol_nr = 505
+    stol_nr_par = 504
+    rad_nr_par = 18
 
     with open(file, "r") as scene:
 
-        rad = scene.readline()
+        for lines in scene.readlines(): 
+            
 
-        if "Dato" in rad:
-            rad[5:-1]
+            if "Dato" in lines: 
+                dato = lines.split(" ")[1].strip()
+                
+        
+            if len(lines) == 8: 
+                området = lines.strip()
+
+            if ((lines.startswith("0") or lines.startswith("1")) and området == "Galleri"):
+                
+                for seat in lines.strip():
+                    legg_til_stol(1, rad_nr, stol_nr, området)
+                    stol_nr += 1
+                    
+
+            
+
+            if ((lines.startswith("0") or lines.startswith("1") or lines.startswith("x")) and området == "Parkett"):
+               
+
+                for seat in lines.strip()[::-1]: 
+                   
+
+                    if (seat == "0"):
+                        legg_til_stol(1,rad_nr_par,stol_nr_par,området)
+                        stol_nr_par -= 1
+                        
+                    
+
+                    if (seat == "1"):
+                        legg_til_stol(1,rad_nr_par,stol_nr_par,området)
+                        legg_til_transaksjon_og_billett(1,rad_nr_par, stol_nr_par, området, dato)
+                        stol_nr_par -= 1
+                        
+
+                    if seat == "x":
+                        stol_nr_par-=1
+                
+                rad_nr_par -=1
+                     
+
+
+
+
+
 
 
 def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
