@@ -1,8 +1,10 @@
 import sqlite3
+from datetime import date
+from datetime import datetime
 
 
 def connect():
-    return sqlite3.connect("teater.db")
+    return sqlite3.connect("../teater.db")
 
 
 def legg_til_stol(sal_id, rad_nr, stol_nr, omraade):
@@ -17,14 +19,34 @@ def legg_til_stol(sal_id, rad_nr, stol_nr, omraade):
 
 
 def legg_til_transaksjon_og_billett(
-    sal_id, rad_nr, stol_nr, omraade, dato, teaterstykke
+    sal_id, rad_nr, stol_nr, dato, omraade, teaterstykke, kundeprofil
 ):
+
     conn = connect()
     c = conn.cursor()
 
+    transaksjon_dato = date.today()
+    tidspunkt = datetime.now()
+
+    c.execute(
+        """
+        SELECT BillettPrisID
+        FROM BillettPris INNER JOIN TeaterStykke
+        ON BillettPris.TeaterStykkeID = TeaterStykke.TeaterStykkeID
+        INNER JOIN Gruppe 
+        ON Gruppe.GruppeID = BillettPris.GruppeID
+        INNER JOIN Kundeprofil
+        ON Kundeprofil.GruppeID = BillettPris.GruppeID
+        WHERE Kundeprofil.KundeID = ?
+        """,
+        (kundeprofil,),
+    )
+    billett_pris_id = c.fetchone()[0]
+
+
     c.execute(
         "INSERT INTO Transaksjon (Dato, Tidspunkt, AntallBilletter, KundeID, BillettPrisID) VALUES (?, ?, ?, ?, ?)",
-        (dato, "12:00", 1, 1, 1),
+        (transaksjon_dato, tidspunkt, 1, kundeprofil, billett_pris_id),
     )
     transaksjon_id = c.lastrowid
 
@@ -36,10 +58,10 @@ def legg_til_transaksjon_og_billett(
     conn.close()
 
 
-def add_row_to_scene_hoved(sal_id):
+def add_row_to_scene_hoved():
 
-    file = "Task1-Task2/hovedscenen.txt"
-    området = None
+    file = "hovedscenen.txt"
+    omraade = None
     rad_nr = 0
     stol_nr = 505
     stol_nr_par = 504
@@ -53,30 +75,30 @@ def add_row_to_scene_hoved(sal_id):
                 dato = lines.split(" ")[1].strip()
 
             if len(lines) == 8:
-                området = lines.strip()
+                omraade = lines.strip()
 
             if (
                 lines.startswith("0") or lines.startswith("1")
-            ) and området == "Galleri":
+            ) and omraade == "Galleri":
 
                 for seat in lines.strip():
-                    legg_til_stol(1, rad_nr, stol_nr, området)
+                    legg_til_stol(1, rad_nr, stol_nr, omraade)
                     stol_nr += 1
 
             if (
                 lines.startswith("0") or lines.startswith("1") or lines.startswith("x")
-            ) and området == "Parkett":
+            ) and omraade == "Parkett":
 
                 for seat in lines.strip()[::-1]:
 
                     if seat == "0":
-                        legg_til_stol(1, rad_nr_par, stol_nr_par, området)
+                        legg_til_stol(1, rad_nr_par, stol_nr_par, omraade)
                         stol_nr_par -= 1
 
                     if seat == "1":
-                        legg_til_stol(1, rad_nr_par, stol_nr_par, området)
+                        legg_til_stol(1, rad_nr_par, stol_nr_par, omraade)
                         legg_til_transaksjon_og_billett(
-                            1, rad_nr_par, stol_nr_par, området, dato, 2
+                            1, rad_nr_par, stol_nr_par, omraade, dato, 2, 1
                         )
                         stol_nr_par -= 1
 
@@ -88,7 +110,6 @@ def add_row_to_scene_hoved(sal_id):
 
 def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
 
-    section = None
     rad_nr = 1
     omraader = []
     omraade_index = 0
@@ -114,12 +135,12 @@ def add_row_to_scene_gamle(scene_list, seating, sal_id, dato):
         for stol_nr, status in enumerate(line, start=1):
             legg_til_stol(sal_id, rad_nr, stol_nr, section)
             if status == "1":
-                legg_til_transaksjon_og_billett(2, rad_nr, stol_nr, section, dato, 1)
+                legg_til_transaksjon_og_billett(2, rad_nr, stol_nr, section, dato, 1, 1)
         rad_nr += 1
 
 
 def main():
-    gamle_scene = open("Task1-Task2/gamle-scene.txt", "r")
+    gamle_scene = open("gamle-scene.txt", "r")
 
     lines_gamle = gamle_scene.readlines()
     lines_gamle.reverse()
@@ -127,7 +148,7 @@ def main():
 
     seating_gamle = {"Parkett": [], "Balkong": [], "Galleri": []}
     add_row_to_scene_gamle(lines_gamle, seating_gamle, sal_id=2, dato=dato)
-    add_row_to_scene_hoved(sal_id=1)
+    add_row_to_scene_hoved()
 
     gamle_scene.close()
 

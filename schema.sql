@@ -58,7 +58,7 @@ CREATE TABLE Billett (
         ON UPDATE CASCADE,
 
     FOREIGN KEY (StolNr, RadNr, Omraade, SalID) 
-        REFERENCES Stol(StolNr, RadNr, Omraade, SalID)
+        REFERENCES Stol(Nr, RadNr, Omraade, SalID)
         ON UPDATE CASCADE
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE Transaksjon (
         ON UPDATE CASCADE,
 
     FOREIGN KEY (BillettPrisID) 
-        REFERENCES BillettPris (BilettPrisID)
+        REFERENCES BillettPris (BillettPrisID)
         ON UPDATE CASCADE
 );
 
@@ -208,3 +208,5 @@ CREATE TABLE Akt(
     
     PRIMARY KEY (TeaterStykkeID, Nummer)
 );
+
+
