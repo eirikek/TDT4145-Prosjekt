@@ -4,7 +4,7 @@ INSERT INTO Sal (Navn) VALUES ('Gamle Scene');
 
 
 --Teaterstykke 
-INSERT INTO TeaterStykke (Navn, Sesong, SalID)  VALUES ('Storst av alt er kjaerligheten', 'Vaar', 2);
+INSERT INTO TeaterStykke (Navn, Sesong, SalID)  VALUES ('Størst av alt er kjærligheten', 'Vaar', 2);
 INSERT INTO TeaterStykke (Navn, Sesong, SalID)  VALUES ('Kongsemnene', 'Vaar', 1);
 
 --Forestilling
