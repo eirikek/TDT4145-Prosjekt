@@ -2,8 +2,17 @@ import sqlite3
 
 
 def finn_skuespillerkolleger(skuespillernavn):
+    if not skuespillernavn.replace(" ", "").isalpha():
+        print("Ugyldig input. Skriv inn et gyldig navn.")
+        return
+
     conn = sqlite3.connect('teater.db')
     cur = conn.cursor()
+
+    cur.execute("SELECT * FROM Skuespiller WHERE Navn = ?", (skuespillernavn,))
+    if not cur.fetchone():
+        print(f"Ingen skuespillere med navn {skuespillernavn}.")
+        return
 
     query = """
     SELECT DISTINCT s1.Navn, s2.Navn AS SkuespillerNavn, ts.Navn AS TeaterStykkeNavn
@@ -22,12 +31,20 @@ def finn_skuespillerkolleger(skuespillernavn):
 
     cur.execute(query, (skuespillernavn,))
     resultat = cur.fetchall()
-
-    for rad in resultat:
-        print(f" Skuespiller:{rad[0]}, Spiller med skuespiller: {rad[1]}, Teaterstykke: {rad[2]}")
-
     cur.close()
     conn.close()
 
+    if resultat:
+        string = f"{resultat[0][0]} har i {
+            resultat[0][2]} spilt i samme akt som:"
+        skuespillere = set([rad[1] for rad in resultat])
+        for navn in skuespillere:
+            string += f"\n{navn}"
+        print(string)
+    else:
+        print(f"Ingen registrerte kolleger funnet for {skuespillernavn}.")
 
-finn_skuespillerkolleger("Arturo Scotti")
+
+if __name__ == "__main__":
+    navn = input("Skriv inn navn på en skuespiller: ")
+    finn_skuespillerkolleger(navn)

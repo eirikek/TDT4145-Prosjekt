@@ -1,4 +1,4 @@
-SELECT S.Navn AS SkueSpillerNavn, Rolle.Navn AS RolleNavn, TeaterStykke.Navn AS TeaterStykkeNavn
+SELECT S.Navn AS SkuespillerNavn, Rolle.Navn AS RolleNavn, TeaterStykke.Navn AS TeaterstykkeNavn
 FROM Skuespiller AS S
 INNER JOIN Spiller ON S.AnsattID = Spiller.AnsattID
 INNER JOIN Rolle ON Spiller.RolleID = Rolle.RolleID

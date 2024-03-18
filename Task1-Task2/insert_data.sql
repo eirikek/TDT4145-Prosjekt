@@ -1,77 +1,84 @@
---Sal 
-INSERT INTO Sal (Navn) VALUES ('Hovedscenen');
-INSERT INTO Sal (Navn) VALUES ('Gamle Scene');
+-- SAL 
+INSERT INTO Sal (Navn) VALUES 
+    ('Hovedscenen'),
+    ('Gamle Scene');
 
 
---Teaterstykke 
-INSERT INTO TeaterStykke (Navn, Sesong, SalID)  VALUES ('Størst av alt er kjærligheten', 'Vaar', 2);
-INSERT INTO TeaterStykke (Navn, Sesong, SalID)  VALUES ('Kongsemnene', 'Vaar', 1);
+-- TEATERSTYKKE 
+INSERT INTO TeaterStykke (Navn, Sesong, SalID) VALUES 
+    ('Størst av alt er kjærligheten', 'Vaar', 2),
+    ('Kongsemnene', 'Vaar', 1);
 
---Forestilling
 
---Kongsemnene
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, '2024-02-01', '19:00:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, '2024-02-02', '19:00:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, '2024-02-03', '19:00:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, '2024-02-05', '19:00:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (2, '2024-02-06', '19:00:00');
+-- FORESTILLING
+-- Kongsemne
+INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES 
+    (2, '2024-02-01', '19:00:00'),
+    (2, '2024-02-02', '19:00:00'),
+    (2, '2024-02-03', '19:00:00'),
+    (2, '2024-02-05', '19:00:00'),
+    (2, '2024-02-06', '19:00:00');
 
---Storst av alt er kjaerligheten
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, '2024-02-03', '18:30:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, '2024-02-06', '18:30:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, '2024-02-07', '18:30:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, '2024-02-12', '18:30:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, '2024-02-13', '18:30:00');
-INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES (1, '2024-02-14', '18:30:00');
+-- Størst av alt er kjærligheten
+INSERT INTO Forestilling (TeaterStykkeID, Dato, StartTidspunkt) VALUES 
+    (1, '2024-02-03', '18:30:00'),
+    (1, '2024-02-06', '18:30:00'),
+    (1, '2024-02-07', '18:30:00'),
+    (1, '2024-02-12', '18:30:00'),
+    (1, '2024-02-13', '18:30:00'),
+    (1, '2024-02-14', '18:30:00');
 
---Akt
 
---Storst av alt
+-- AKT
+-- Størst av alt er kjærligheten
 INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (1, 1);
 
 -- Kongsemne
-INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 1);
-INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 2);
-INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 3);
-INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 4);
-INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES (2, 5);
-
---Skuespillere
-
--- KONGSEMNENE
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Arturo Scotti', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Ingunn Beate Strige Øyen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Hans Petter Nilsen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Madeleine Brandtzæg Nilsen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Synnøve Fossum Eriksen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Emma Caroline Deichmann', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Thomas Jensen Takyi', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Per Bogstad Gulliksen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Isak Holmen Sørensen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Emil Olafsson', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Snorre Ryen Tøndel', NULL, 'Fast');
-
---STØRST AV ALT ER KJÆRLIGHETEN
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Sunniva Du Mond Nordal', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Jo Saberniak', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Marte M. Steinholt', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Tor Ivar Hagen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Trond-Ove Skrødal', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Natalie Grøndahl Tangen', NULL, 'Fast');
-INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) Values ('Håsmund Flaten', NULL, 'Fast');
+INSERT INTO Akt (TeaterStykkeID, Nummer) VALUES 
+    (2, 1),
+    (2, 2),
+    (2, 3),
+    (2, 4),
+    (2, 5);
 
 
---Bilettpris
-INSERT INTO Gruppe (GruppeType)
-VALUES
+-- SKUESPILLERE
+-- Kongsemne
+INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) VALUES 
+    ('Arturo Scotti', NULL, 'Fast'),
+    ('Ingunn Beate Strige Øyen', NULL, 'Fast'),
+    ('Hans Petter Nilsen', NULL, 'Fast'),
+    ('Madeleine Brandtzæg Nilsen', NULL, 'Fast'),
+    ('Synnøve Fossum Eriksen', NULL, 'Fast'),
+    ('Emma Caroline Deichmann', NULL, 'Fast'),
+    ('Thomas Jensen Takyi', NULL, 'Fast'),
+    ('Per Bogstad Gulliksen', NULL, 'Fast'),
+    ('Isak Holmen Sørensen', NULL, 'Fast'),
+    ('Fabian Heidelberg Lunde', NULL, 'Fast'),
+    ('Emil Olafsson', NULL, 'Fast'),
+    ('Snorre Ryen Tøndel', NULL, 'Fast');
+
+-- Størst av alt er kjærligheten
+INSERT INTO Skuespiller (Navn, Epost, AnsattStatus) VALUES 
+    ('Sunniva Du Mond Nordal', NULL, 'Fast'),
+    ('Jo Saberniak', NULL, 'Fast'),
+    ('Marte M. Steinholt', NULL, 'Fast'),
+    ('Tor Ivar Hagen', NULL, 'Fast'),
+    ('Trond-Ove Skrødal', NULL, 'Fast'),
+    ('Natalie Grøndahl Tangen', NULL, 'Fast'),
+    ('Håsmund Flaten', NULL, 'Fast');
+
+
+-- GRUPPE
+INSERT INTO Gruppe (GruppeType) VALUES
     ('Ordinær'),
     ('Honnør'),
     ('Student'), 
     ('Barn');
 
---Rolle
 
--- Kongsemnene
+-- ROLLE
+-- Kongsemne
 INSERT INTO Rolle (Navn) VALUES
     ('Haakon Haakonssønn'),
     ('Dagfinn Bonde'),
@@ -100,10 +107,10 @@ INSERT INTO Rolle (Navn) VALUES
     ('Håsmund Flaten');
 
 
--- Kongsemnene
+--DELTAR I
 INSERT INTO DeltarI (RolleID, AktNummer, TeaterStykkeID) VALUES
 
-    --Kongsemnene
+    -- Kongsemne
 
     -- Håkon håkonsson
     (1, 1, 2),
@@ -111,13 +118,15 @@ INSERT INTO DeltarI (RolleID, AktNummer, TeaterStykkeID) VALUES
     (1, 3, 2),
     (1, 4, 2),
     (1, 5, 2),
+
     -- Dagfinn bonde
     (2, 1, 2),
     (2, 2, 2),
     (2, 3, 2),
     (2, 4, 2),
     (2, 5, 2),
-    --Inga fra Vartejg
+
+    -- Inga fra Vartejg
     (3, 1,2),
     (3, 3, 2),
 
@@ -128,7 +137,7 @@ INSERT INTO DeltarI (RolleID, AktNummer, TeaterStykkeID) VALUES
     (4,4,2),
     (4,5,2),
 
-    --Ragnhild
+    -- Ragnhild
     (5, 1, 2),
     (5, 5, 2),
 
@@ -144,7 +153,7 @@ INSERT INTO DeltarI (RolleID, AktNummer, TeaterStykkeID) VALUES
     (7,2,2),
     (7,5,2),
 
-    --Ingebjørg
+    -- Ingebjørg
     (8, 4, 2),
 
     -- Biskop Nikolas
@@ -184,8 +193,9 @@ INSERT INTO DeltarI (RolleID, AktNummer, TeaterStykkeID) VALUES
     (22,1,1);
 
 
+-- SPILLER
 INSERT INTO Spiller (AnsattID, RolleID) VALUES
---Kongsemnene
+-- Kongsemne
     (1, 1),
     (2, 3),
     (3, 4),
@@ -197,12 +207,13 @@ INSERT INTO Spiller (AnsattID, RolleID) VALUES
     (8, 10),
     (9, 11),
     (9, 12),
-    (10, 2),
-    (10, 14),
-    (11, 15),
+    (10, 12),
+    (10, 13),
+    (11, 2),
+    (11, 14),
+    (12, 15),
 
---Størst av alt er kjærligheten
-
+-- Størst av alt er kjærligheten
     (12, 16),
     (13, 17),
     (14, 18),
@@ -211,31 +222,34 @@ INSERT INTO Spiller (AnsattID, RolleID) VALUES
     (17, 21),
     (18, 22);
 
+
+-- KUNDEPROFIL
 INSERT INTO Kundeprofil(Tlfnr, Navn, Addresse, GruppeID) VALUES(96893214, 'Pål', 'Kule gata 3', 1);
 
---Størst av alt er kjærligheten
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (350, 1, 1, 1);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (300, 1, 2, 1);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (220, 1, 3, 1);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (220, 1, 4, 1);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (320, 10, 1, 1);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (270, 10, 2, 1);
+
+-- BILLETTPRIS
+-- Størst av alt er kjærligheten
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES 
+    (350, 1, 1, 1),
+    (300, 1, 2, 1),
+    (220, 1, 3, 1),
+    (220, 1, 4, 1),
+    (320, 10, 1, 1),
+    (270, 10, 2, 1);
 
 
---Kongsemne
+-- Kongsemne
+INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES 
+    (450, 1, 1, 2),
+    (380, 1, 2, 2),
+    (280, 1, 3, 2),
+    (420, 10, 1, 2),
+    (360, 10, 2, 2);
 
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (450, 1, 1, 2);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (380, 1, 2, 2);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (280, 1, 3, 2);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (420, 10, 1, 2);
-INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (360, 10, 2, 2);
 
-
-
--- KUNSTNERISKLAG
-
--- Kongsemnene
+-- KUNSTNERISK LAG
 INSERT INTO KunstneriskLag (Navn, OppgaveType) VALUES
+-- Kongsemne
 ('YURY BUTUSOV',6),
 ('ALEKSANDR SHISHKIN-HOKUSAI', 2),
 ('Eivind Myren', 4),
@@ -248,6 +262,7 @@ INSERT INTO KunstneriskLag (Navn, OppgaveType) VALUES
 ('Magnus Mikaelsen', 4),
 ('Kristoffer Spender', 5);
 
+
 -- OPPGAVE
 INSERT INTO Oppgave (OppgaveType) VALUES 
 ('Regi'),
@@ -258,10 +273,9 @@ INSERT INTO Oppgave (OppgaveType) VALUES
 ('Regi og musikkutvelgelse');
 
 
--- UTFØRESTIL
-
--- Størst av alt er kjærligheten
+-- UTFØRES TIL
 INSERT INTO UtfooresTil (TeaterStykkeID, OppgaveType) VALUES
+-- Størst av alt er kjærligheten
 (1, 'Regi'),
 (1, 'Scenografi og kostymer'),
 (1,'Musikalsk ansvarlig'),
@@ -275,10 +289,5 @@ INSERT INTO UtfooresTil (TeaterStykkeID, OppgaveType) VALUES
 (2, 'Dramaturg');
 
 
--- DIREKTØR
-INSERT INTO Direktoer (Navn, Epost, AnsattStatus) VALUES ('Elisabeth Egseth Hansen', 'Eksempel@epost.no', 'Fast');
-
-
-
-
-
+--DIREKTØR
+INSERT INTO Direktoer (Navn, Epost, AnsattStatus) VALUES ('Elisabeth Egseth Hansen', NULL, 'Fast');
