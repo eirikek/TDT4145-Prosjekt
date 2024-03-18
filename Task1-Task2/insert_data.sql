@@ -235,48 +235,48 @@ INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES (360,
 -- KUNSTNERISKLAG
 
 -- Kongsemnene
-INSERT INTO KunstneriskLag (Navn, TeaterStykkeID) VALUES
-("YURY BUTUSOV",2),
-("ALEKSANDR SHISHKIN-HOKUSAI", 2),
-("Eivind Myren", 2),
-("Mina Rype Stokke", 2),
+INSERT INTO KunstneriskLag (Navn, OppgaveType) VALUES
+('YURY BUTUSOV',6),
+('ALEKSANDR SHISHKIN-HOKUSAI', 2),
+('Eivind Myren', 4),
+('Mina Rype Stokke', 5),
 
 -- Størst av alt er kjærligheten
-("Jonas Corell Petersen",1),
-("David Gehrt", 1),
-("Gaute Tønder", 1),
-("Magnus Mikaelsen", 1),
-("Kristoffer Spender", 1);
+('Jonas Corell Petersen',1),
+('David Gehrt', 2),
+('Gaute Tønder', 3),
+('Magnus Mikaelsen', 4),
+('Kristoffer Spender', 5);
 
 -- OPPGAVE
-INSERT INTO Oppgave VALUES
-("Regi"),
-("Scenografi og kostymer"),
-("Musikalsk ansvarlig"),
-("Lysdesign"),
-("Dramaturg"),
-("Regi og musikkutvelgelse");
+INSERT INTO Oppgave (OppgaveType) VALUES 
+('Regi'),
+('Scenografi og kostymer'),
+('Musikalsk ansvarlig'),
+('Lysdesign'),
+('Dramaturg'),
+('Regi og musikkutvelgelse');
 
 
 -- UTFØRESTIL
 
 -- Størst av alt er kjærligheten
-INSERT INTO UtfooresTil VALUES
-(1, "Regi"),
-(1, "Scenografi og kostymer"),
-(1,"Musikalsk ansvarlig"),
-(1,"Lysdesign"),
-(1,"Dramaturg"),
+INSERT INTO UtfooresTil (TeaterStykkeID, OppgaveType) VALUES
+(1, 'Regi'),
+(1, 'Scenografi og kostymer'),
+(1,'Musikalsk ansvarlig'),
+(1,'Lysdesign'),
+(1,'Dramaturg'),
 
 -- Kongsemne
-(2, "Regi og musikkutvelgelse"),
-(2, "Scenografi og kostymer"),
-(2,"Lysdesign"),
-(2, "Dramaturg");
+(2, 'Regi og musikkutvelgelse'),
+(2, 'Scenografi og kostymer'),
+(2,'Lysdesign'),
+(2, 'Dramaturg');
 
 
 -- DIREKTØR
-INSERT INTO Direktoer (Navn, Epost, AnsattStatus) VALUES ("Elisabeth Egseth Hansen", "Eksempel@epost.no", "Fast");
+INSERT INTO Direktoer (Navn, Epost, AnsattStatus) VALUES ('Elisabeth Egseth Hansen', 'Eksempel@epost.no', 'Fast');
 
 
 

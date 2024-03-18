@@ -32,8 +32,7 @@ def hent_forestillinger_og_billetter(dato):
         """, (teaterstykke_id, dato))
 
         antall_solgte_billetter = cursor.fetchone()[0]
-        print(f"Forestilling: {forestilling[1]}, Dato: {
-              forestilling[2]}, Solgte billetter: {antall_solgte_billetter}")
+        print(f"Forestilling: {forestilling[1]}, Dato: {forestilling[2]}, Solgte billetter: {antall_solgte_billetter}")
 
     conn.close()
 

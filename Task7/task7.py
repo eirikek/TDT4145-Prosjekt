@@ -2,7 +2,7 @@ import sqlite3
 
 
 def finn_skuespillerkolleger(skuespillernavn):
-    conn = sqlite3.connect('../teater.db')
+    conn = sqlite3.connect('teater.db')
     cur = conn.cursor()
 
     query = """
