@@ -248,19 +248,19 @@ INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES
 
 
 -- KUNSTNERISK LAG
-INSERT INTO KunstneriskLag (Navn, OppgaveType) VALUES
+INSERT INTO KunstneriskLag (Navn, AnsattStatus, OppgaveType) VALUES
 -- Kongsemne
-('YURY BUTUSOV',6),
-('ALEKSANDR SHISHKIN-HOKUSAI', 2),
-('Eivind Myren', 4),
-('Mina Rype Stokke', 5),
+('Yury Butusov', 'Fast', 6),
+('Aleksandr Shishkin-Hokusai', 'Fast', 2),
+('Eivind Myren', 'Fast', 4),
+('Mina Rype Stokke', 'Fast', 5),
 
 -- Størst av alt er kjærligheten
-('Jonas Corell Petersen',1),
-('David Gehrt', 2),
-('Gaute Tønder', 3),
-('Magnus Mikaelsen', 4),
-('Kristoffer Spender', 5);
+('Jonas Corell Petersen', 'Fast', 1),
+('David Gehrt', 'Fast', 2),
+('Gaute Tønder', 'Fast', 3),
+('Magnus Mikaelsen', 'Fast', 4),
+('Kristoffer Spender', 'Fast', 5);
 
 
 -- OPPGAVE
