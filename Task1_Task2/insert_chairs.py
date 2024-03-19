@@ -59,7 +59,7 @@ def legg_til_transaksjon_og_billett(
 
 def add_row_to_scene_hoved():
 
-    file = "Task1-Task2/hovedscenen.txt"
+    file = "Task1_Task2/hovedscenen.txt"
     omraade = None
     rad_nr = 0
     stol_nr = 505
@@ -141,7 +141,7 @@ def add_row_to_scene_gamle(scene, omraader, sal_id, dato):
 
 
 def main():
-    gamle_scene = open("Task1-Task2/gamle-scene.txt", "r")
+    gamle_scene = open("Task1_Task2/gamle-scene.txt", "r")
 
     lines_gamle_scene = gamle_scene.readlines()
     lines_gamle_scene.reverse()

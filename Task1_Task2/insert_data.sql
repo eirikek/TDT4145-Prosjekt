@@ -214,13 +214,13 @@ INSERT INTO Spiller (AnsattID, RolleID) VALUES
     (12, 15),
 
 -- Størst av alt er kjærligheten
-    (12, 16),
-    (13, 17),
-    (14, 18),
-    (15, 19),
-    (16, 20),
-    (17, 21),
-    (18, 22);
+    (13, 16),
+    (14, 17),
+    (15, 18),
+    (16, 19),
+    (17, 20),
+    (18, 21),
+    (19, 22);
 
 
 -- KUNDEPROFIL
@@ -250,17 +250,17 @@ INSERT INTO Billettpris(Pris, MinKvantum, GruppeID, TeaterstykkeID) VALUES
 -- KUNSTNERISK LAG
 INSERT INTO KunstneriskLag (Navn, AnsattStatus, OppgaveType) VALUES
 -- Kongsemne
-('Yury Butusov', 'Fast', 6),
-('Aleksandr Shishkin-Hokusai', 'Fast', 2),
-('Eivind Myren', 'Fast', 4),
-('Mina Rype Stokke', 'Fast', 5),
+('Yury Butusov', 'Fast', 'Regi og musikkutvelgelse'),
+('Aleksandr Shishkin-Hokusai', 'Fast', 'Scenografi og kostymer'),
+('Eivind Myren', 'Fast', 'Lysdesign'),
+('Mina Rype Stokke', 'Fast', 'Dramaturg'),
 
 -- Størst av alt er kjærligheten
-('Jonas Corell Petersen', 'Fast', 1),
-('David Gehrt', 'Fast', 2),
-('Gaute Tønder', 'Fast', 3),
-('Magnus Mikaelsen', 'Fast', 4),
-('Kristoffer Spender', 'Fast', 5);
+('Jonas Corell Petersen', 'Fast', 'Regi'),
+('David Gehrt', 'Fast', 'Scenografi og kostymer'),
+('Gaute Tønder', 'Fast', 'Musikalsk ansvarlig'),
+('Magnus Mikaelsen', 'Fast', 'Lysdesign'),
+('Kristoffer Spender', 'Fast', 'Dramaturg');
 
 
 -- OPPGAVE

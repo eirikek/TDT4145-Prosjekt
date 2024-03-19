@@ -20,9 +20,11 @@ def finn_skuespillerkolleger(skuespillernavn):
     FROM Skuespiller s1
     INNER JOIN Spiller p1 ON s1.AnsattID = p1.AnsattID
     INNER JOIN DeltarI d1 ON p1.RolleID = d1.RolleID
+  
 
     INNER JOIN TeaterStykke ts ON d1.TeaterStykkeID = ts.TeaterStykkeID
     INNER JOIN DeltarI d2 ON ts.TeaterStykkeID = d2.TeaterStykkeID AND d1.AktNummer = d2.AktNummer
+   
 
     INNER JOIN Spiller p2 ON d2.RolleID = p2.RolleID
     INNER JOIN Skuespiller s2 ON p2.AnsattID = s2.AnsattID
@@ -35,11 +37,12 @@ def finn_skuespillerkolleger(skuespillernavn):
     conn.close()
 
     if resultat:
-        string = f"{resultat[0][0]} har i {
-            resultat[0][2]} spilt i samme akt som:"
+        # fmt: off
+        string = f"{resultat[0][0]} har i {resultat[0][2]} spilt i samme akt som:"
         skuespillere = set([rad[1] for rad in resultat])
         for navn in skuespillere:
             string += f"\n{navn}"
+
         print(string)
     else:
         print(f"Ingen registrerte kolleger funnet for {skuespillernavn}.")
